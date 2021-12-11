@@ -1,0 +1,11 @@
+mysql steps for installation: https://www.mysqltutorial.org/install-mysql-centos/
+
+Root Password: Cloud@123
+
+
+Steps to connect mysql
+
+*  mysql -u root -p
+
+Mysql password : Tiger@123
+
