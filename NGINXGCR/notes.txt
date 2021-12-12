@@ -1,0 +1,37 @@
+docker client -- > repository (docker images) --> 1.public(hub.docker.com) 2.private (private to cluster)
+
+
+cloud related storage registry will maintained -- GCR
+
+pull -- pull image
+
+push -- push image to registry
+
+start/stop -- > container start or stop
+
+Image -- server libraries+web app libraries + app code + File system mounting etc
+container -- > once we start image it is called as container
+
+Dockerfile is used to buils images in docker.(https://www.tutorialspoint.com/docker/docker_containers.htm)
+
+Dockerfile:
+FROM centos:7
+MAINTAINER "GCP developers"
+RUN yum -y install epel-release
+RUN yum -y install nginx
+ADD index.html /usr/share/nginx/html/index.html
+ADD image.jpeg /usr/share/nginx/html
+EXPOSE 80/tcp
+CMD ["nginx", "-g daemon off;"]
+
+command: docker build -t docker.io/nginx:v3 /home/uidapp/
+
+
+echo "building my-web-server image"
+
+docker build -t gcr.io/gcp0tohero/my-web-server:v1 .
+
+echo "Pushing my-web-server image to GCR"
+
+gcloud docker -- push gcr.io/gcp0tohero/my-web-server:v1
+
